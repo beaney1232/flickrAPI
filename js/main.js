@@ -28,7 +28,7 @@ myApp.factory('flickr', function ($http) {
   };
 
   flickr.prototype.populateTable = function (searchTerm) {
-    document.getElementById("loaderBox").style.display = "inline-block";
+    document.getElementById("loaderBox").style.display = "block";
     document.getElementById("body").className = "noscroll";
 
     this.tempItems = [];
@@ -63,8 +63,10 @@ myApp.factory('flickr', function ($http) {
 
     if (this.tempItems.length == 0) {
       this.noResults = true;
+      setTimeout(continueExecution, 800);
     } else {
       this.noResults = false;
+      setTimeout(continueExecution, 800);
     }
   }
 

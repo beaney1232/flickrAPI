@@ -12,19 +12,16 @@
   <div ng-app="myApp" ng-controller="flickrController">
     <div infinite-scroll='flickr.nextPage("")' infinite-scroll-disabled='flickr.busy' infinite-scroll-distance='1'>
       <div style="" class="searchHolder">
-        
+        <img src="image/banner.png" class="banner"/>
+        <input ng-model="searchTerm" id="search" class="searchBox" placeholder="Search" />
+      </div>
+      <div class="container">
         <div id="loaderBox">
           <div class="loader">Loading...</div>
         </div>
-
-        <img src="image/banner.png" class="banner"/>
-        <input ng-model="searchTerm" id="search" class="searchBox" placeholder="Search" />
-
-      </div>
-      <div class="container">
         <div class="noResults" ng-show='flickr.noResults'>
-          <img src="image/warning-icon.png" class="warning-icon" />
-          <p>No results :(</p>
+          <span>!</span> <br/>
+          <p>NO RESULTS</p>
         </div>
         <div ng-repeat='item in flickr.tempItems track by $index' class="box">
           <div class="inner">
