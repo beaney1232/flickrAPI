@@ -1,0 +1,43 @@
+﻿<!doctype html>
+<html>
+<head>
+  <title>Infinite Scroll Matt Beaney</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
+  <link href="StyleSheet.css" rel="stylesheet" />
+  <script src="ng-infinite-scroll.min.js"></script>
+  <script src="js/main.js"></script>
+</head>
+<body id="body">
+  <div ng-app="myApp" ng-controller="flickrController">
+    <div infinite-scroll='flickr.nextPage("")' infinite-scroll-disabled='flickr.busy' infinite-scroll-distance='1'>
+      <div style="" class="searchHolder">
+        <input ng-model="searchTerm" id="search" class="searchBox" placeholder="Search"/>
+        <div id="loaderBox" style="display: none; margin: auto; width: 5%; height: 44px; background-color: grey; border-radius: 5px; vertical-align: top; float:left">
+          <div class="loader">Loading...</div>
+        </div>
+
+        <img src="image/banner.png" class="banner"/>
+
+      </div>
+      <div class="container">
+        <div class="noResults" ng-show='flickr.noResults'>
+          <img src="image/warning-icon.png" class="warning-icon" />
+          <p>No results :(</p>
+        </div>
+        <div ng-repeat='item in flickr.tempItems track by $index' class="box">
+          <div class="inner">
+            <img src="{{item.media.m}}"/>
+            <div class="descriptionContainer">
+              <a href="{{item.link}}">
+                <p>{{item.title}}</p></a>
+              <p>by: {{item.author}}</p>
+            </div>
+          </div>
+        </div>
+        <div ng-show='flickr.busy'></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
