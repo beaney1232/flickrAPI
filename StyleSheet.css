@@ -27,6 +27,17 @@
   border-bottom: 1px solid #00008b;
 }
 
+#loaderBox {
+  display: none; 
+  margin: auto; 
+  margin-left: 5px;
+  width: 5%; 
+  height: 44px; 
+  background-color: grey; 
+  border-radius: 5px; 
+  vertical-align: top;
+}
+
 .box {
   display: inline-block;
   vertical-align:top;
